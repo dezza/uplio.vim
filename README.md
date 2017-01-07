@@ -1,5 +1,5 @@
 ![Vim](https://upl.io/i/h4l0u4.png)
-[![Uplio.vim](https://upl.io/i/cppapy.png) ](http://upl.io)
+[![Uplio.vim](https://upl.io/i/cppapy.png)](http://upl.io)
 # uplio.vim
 
 ---
@@ -7,7 +7,10 @@
 
 * [About](#about)
 * [Requirements](#requirements)
+    * [Optional](#optional)
 * [Configuration](#configuration)
+* [Install](#install)
+    * [vim-plug](#vim-plug)
     * [API Key](#api-key) 
     * [Custom Mappings](#custom-mappings)
     * [strftime() format](#strftime-format)
@@ -25,16 +28,16 @@
 
 [uplio.vim] allows you to...
 
-* Upload snippets selected in Visual-mode
-* Upload current file and unnamed buffers
-* Insert to clipboard via `xclip`(UNIX/Linux), `pbcopy`(OS X), `clip` (Windows) or a configurable clipboard binary. Note that `xclip` also works over X11 forwarding (link to guide)
+* Upload snippets selected in Visual-mode.
+* Upload current file and unnamed buffers.
+* Insert to clipboard via `xclip`(UNIX/Linux), `pbcopy`(OS X), `clip` (Windows) or a configurable clipboard binary. Note that `xclip` also works over X11 forwarding.
 
 [uplio.vim] automatically...
 
-* Chooses a clipboard binary to paste into based on operating-system
+* Chooses a clipboard binary to paste into based on operating-system.
 * Creates a temporary file when needed for Visual-mode snippets.
-* Appends a filetype extension to get proper syntax highlighting
-* Adds filename "unnamed_"+[strftime](http://vimhelp.appspot.com/eval.txt.html#strftime%28%29) to unnamed buffers <sup>(Example: unnamed_27.06.16_16.57.05)</sup>
+* Appends a filetype extension to get proper syntax highlighting.
+* Adds filename "unnamed_"+[strftime](http://vimhelp.appspot.com/eval.txt.html#strftime%28%29) to unnamed buffers <sup>(Example: unnamed_27.06.16_16.57.05)</sup>.
 
 ## Requirements
 * curl
@@ -42,10 +45,26 @@
 ###### Optional
 * Clipboard commandline-interface (xclip, pbcopy, etc.)
 
+## Install
+* ###### [vim-plug]
+
+    ```vim
+    Plug 'dezza/uplio.vim'
+    ```
+    
+    With fancy autoloading:
+    ```vim
+    Plug 'dezza/uplio.vim', { 'on': ['<Plug>Uplio_File', '<Plug>Uplio_Visual'] }
+    " map only exists so vim-plug can autoload
+    vmap UU <Plug>Uplio_Visual("v")
+    nmap UU <Plug>Uplio_File("n")
+    ```
+
+
 ## Configuration
 * ##### API Key
     
-    To have previous entries displayed when logged into [upl.io] with your username
+    To have previous entries displayed when logged into [upl.io] with your username:
     ```vim
     let g:uplio_key = '__KEY__'
     ```
@@ -53,13 +72,14 @@
     
 * ##### Custom Mappings
     
-    If you do not like the default: `UU` (`shift + uu`) mapping.
-    Here is an example of a `KK` mapping. `shift + kk`
+    If you do not like the default: `UU` (`shift + uu`) mapping then;
+    Here is an example of a `KK` mapping. `shift + kk`.
+    
     ```vim
     vnomap KK <Plug>Uplio_Visual("v")
     nnoremap KK <Plug>Uplio_File("n")
     ```
-    
+    NOTE: This will disable default mappings.
     
 * ##### strftime() format
     `man 3 strftime`
@@ -95,5 +115,6 @@
     let g:uplio_loaded = 0
     ```
 
+[vim-plug]:https://github.com/junegunn/vim-plug
 [upl.io]:https://upl.io
 [uplio.vim]:https://github.com/dezza/uplio.vim
