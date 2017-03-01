@@ -54,7 +54,7 @@ function! s:Uplio(mode)
   " (need temporary file)
   if empty(l:buf_fext) || a:mode ==# 'v'
     if exists('$TMPDIR')
-      let l:tmp = $TMPDIR
+      let l:tmp = $TMPDIR.'/'
     elseif has('win32')
       let l:tmp=$TEMP.'\'
     else
