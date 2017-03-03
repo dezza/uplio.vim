@@ -50,15 +50,17 @@
 
     ```vim
     Plug 'dezza/uplio.vim'
-    ```
-    
-    With fancy autoloading:
-    ```vim
-    Plug 'dezza/uplio.vim', { 'on': ['<Plug>Uplio_File', '<Plug>Uplio_Visual'] }
-    " map only exists so vim-plug can autoload
     vmap UU <Plug>Uplio_Visual("v")
     nmap UU <Plug>Uplio_File("n")
     ```
+    
+    With vim-plug fancy autoloading:
+    ```vim
+    Plug 'dezza/uplio.vim', { 'on': ['<Plug>Uplio_File', '<Plug>Uplio_Visual'] }
+    vmap UU <Plug>Uplio_Visual("v")
+    nmap UU <Plug>Uplio_File("n")
+    ```
+    uplio.vim already does autoloading but vim-plug autoloads /plugin/uplio.vim as well.
 
 
 ## Configuration
