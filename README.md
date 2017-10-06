@@ -78,7 +78,7 @@
     Here is an example of a `KK` mapping. `shift + kk`.
     
     ```vim
-    vnomap KK <Plug>Uplio_Visual("v")
+    vnoremap KK <Plug>Uplio_Visual("v")
     nnoremap KK <Plug>Uplio_File("n")
     ```
     NOTE: This will disable default mappings.
