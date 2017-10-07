@@ -72,16 +72,12 @@
     ```
     
     
-* ##### Custom Mappings
-    
-    If you do not like the default: `UU` (`shift + uu`) mapping then;
-    Here is an example of a `KK` mapping. `shift + kk`.
+* ##### Mapping
     
     ```vim
-    vmap KK <Plug>Uplio_Visual("v")
-    nmap KK <Plug>Uplio_File("n")
+    vmap UU <Plug>Uplio_Visual("v")
+    nmap UU <Plug>Uplio_File("n")
     ```
-    NOTE: This will disable default mappings.
     
 * ##### strftime() format
     `man 3 strftime`
