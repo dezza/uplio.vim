@@ -21,13 +21,13 @@ function! uplio#snippet#Uplio(mode)
   let l:pipe_to_clipboard = ' | ' "gets overwritten when OS is unknown
   if exists('g:uplio_clipboard_insert')
       let l:clipboard_insert=g:uplio_clipboard_insert
+  elseif has('mac')
+      " TODO: a -f equivalent for this too?
+      let l:clipboard_insert='pbcopy'
   elseif ($SSH_CLIENT || $SSH_TTY) && exists('$DISPLAY') "X11 forwarding
       let l:clipboard_insert='xclip -f'
   elseif has('unix') && exists('$DISPLAY')
       let l:clipboard_insert='xclip -f -selection clipboard'
-  elseif has('max') "Darwin"
-      " TODO: a -f equivalent for this too?
-      let l:clipboard_insert='pbcopy'
   elseif has('win32')
       let l:clipboard_insert='clip'
   else 
